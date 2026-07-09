@@ -1,0 +1,5 @@
+aws_region        = "eu-central-1"
+customer_name     = "acme-corp"
+customer_role_arn = "arn:aws:iam::222222222222:role/PlatformProvisionerRole"
+# Do not commit real values.
+# external_id     = "REPLACE_ME"

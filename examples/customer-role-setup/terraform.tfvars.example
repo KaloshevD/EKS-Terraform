@@ -1,0 +1,4 @@
+aws_region             = "eu-central-1"
+management_account_id  = "111111111111"
+# Do not commit real values. Generate: openssl rand -hex 16
+# external_id           = "REPLACE_ME"
