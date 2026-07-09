@@ -42,6 +42,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run tfsec
-        uses: aquasecurity/tfsec-action@v1.0.3
+        uses: aquasecurity/tfsec-action@v1.0.11  # or latest stable version
         with:
           working_directory: .
