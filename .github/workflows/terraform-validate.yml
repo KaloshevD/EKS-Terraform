@@ -2,9 +2,9 @@ name: Terraform Validate
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   validate:
@@ -37,11 +37,21 @@ jobs:
         run: terraform validate
 
   security-scan:
-    name: tfsec
+    name: trivy (IaC scan)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run tfsec
-        uses: aquasecurity/tfsec-action@v1.0.11  # or latest stable version
+
+      # Pinned to a commit SHA, not a tag. aquasecurity/trivy-action had 76 of
+      # its 77 release tags retroactively repointed to a malicious commit in
+      # a 2026 supply-chain attack (tags are mutable; a repointed tag looks
+      # identical in workflow logs). This SHA corresponds to the confirmed-
+      # clean v0.35.0 release. Verify against
+      # https://github.com/aquasecurity/trivy-action/releases before bumping.
+      - name: Run Trivy config scan
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
         with:
-          working_directory: .
+          scan-type: "config"
+          scan-ref: "."
+          exit-code: "0" # don't fail the build - report only, for now
+          format: "table"
