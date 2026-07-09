@@ -7,6 +7,47 @@ cross-account IAM roles instead of shared credentials - the pattern real MSPs, S
 and platform teams use when they manage infrastructure they don't own.
 
 ## Why this exists
+Imagine you want a Kubernetes cluster running on AWS.
+
+You could:
+
+Log into AWS Console
+Click hundreds of buttons
+Create networks
+Create security groups
+Create IAM roles
+Create EC2 machines
+Create an EKS cluster
+
+That would take an hour or more.
+
+Instead, Terraform lets you describe everything in code.
+
+Think of it like this:
+
+"Dear AWS, here is a blueprint of my infrastructure. Build it exactly like this."
+
+Terraform reads the blueprint and creates everything automatically.
+
+What is EKS?
+
+EKS stands for
+
+Elastic Kubernetes Service
+
+AWS manages the Kubernetes control plane for you.
+
+Instead of installing Kubernetes yourself, AWS does it.
+
+So:
+
+Your App
+      ↓
+Kubernetes
+      ↓
+AWS EKS
+      ↓
+AWS Cloud
 
 Most EKS Terraform demos assume you're deploying into your own account. In practice, a
 platform/security team is often provisioning infrastructure inside a *customer's* AWS account -
