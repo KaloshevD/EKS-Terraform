@@ -1,6 +1,6 @@
 # eks-cross-account-terraform
 
-[![Terraform Validate](https://github.com/KaloshevD/eks-cross-account-terraform/actions/workflows/terraform-validate.yml/badge.svg)](https://github.com/KaloshevD/eks-cross-account-terraform/actions/workflows/terraform-validate.yml)
+[![Terraform Validate](https://github.com/KaloshevD/EKS-Terraform/actions/workflows/terraform-validate.yml/badge.svg)](https://github.com/KaloshevD/EKS-Terraform/actions/workflows/terraform-validate.yml)
 
 Terraform modules for provisioning EKS clusters **into customer-owned AWS accounts**, using
 cross-account IAM roles instead of shared credentials - the pattern real MSPs, SaaS vendors,
