@@ -31,8 +31,8 @@ provider "aws" {
   region = var.aws_region
 
   assume_role {
-    role_arn    = var.customer_role_arn
-    external_id = var.external_id
+    role_arn     = var.customer_role_arn
+    external_id  = var.external_id
     session_name = "eks-platform-provisioning"
   }
 }

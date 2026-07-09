@@ -40,8 +40,8 @@ module "provisioner_role" {
   source = "../../modules/customer-account-role"
 
   management_account_id = var.management_account_id
-  external_id            = var.external_id
-  role_name               = "PlatformProvisionerRole"
+  external_id           = var.external_id
+  role_name             = "PlatformProvisionerRole"
 
   tags = {
     ManagedBy = "terraform"
