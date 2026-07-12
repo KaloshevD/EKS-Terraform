@@ -2,52 +2,21 @@
 
 [![Terraform Validate](https://github.com/KaloshevD/EKS-Terraform/actions/workflows/terraform-validate.yml/badge.svg)](https://github.com/KaloshevD/EKS-Terraform/actions/workflows/terraform-validate.yml)
 
+Part of a platform-engineering series:
+**EKS-Terraform** →
+[k8s-security-baseline](https://github.com/KaloshevD/k8s-security-baseline) →
+custom-operator (coming soon)
+
+**tl;dr:** Provisions a production-style EKS cluster inside a *customer's* AWS account using
+cross-account IAM (`sts:AssumeRole` + external ID), not your own - the pattern real MSPs and
+platform teams actually use. Scoped IAM policy (no `AdministratorAccess`), reusable Terraform
+modules, and a CI pipeline that validates and security-scans every change.
+
 Terraform modules for provisioning EKS clusters **into customer-owned AWS accounts**, using
 cross-account IAM roles instead of shared credentials - the pattern real MSPs, SaaS vendors,
 and platform teams use when they manage infrastructure they don't own.
 
 ## Why this exists
-Imagine you want a Kubernetes cluster running on AWS.
-
-You could:
-
-Log into AWS Console
-Click hundreds of buttons
-Create networks
-Create security groups
-Create IAM roles
-Create EC2 machines
-Create an EKS cluster
-
-That would take an hour or more.
-
-Instead, Terraform lets you describe everything in code.
-
-Think of it like this:
-
-"Dear AWS, here is a blueprint of my infrastructure. Build it exactly like this."
-
-Terraform reads the blueprint and creates everything automatically.
-
-What is EKS?
-
-EKS stands for
-
-Elastic Kubernetes Service
-
-AWS manages the Kubernetes control plane for you.
-
-Instead of installing Kubernetes yourself, AWS does it.
-
-So:
-
-Your App
-      ↓
-Kubernetes
-      ↓
-AWS EKS
-      ↓
-AWS Cloud
 
 Most EKS Terraform demos assume you're deploying into your own account. In practice, a
 platform/security team is often provisioning infrastructure inside a *customer's* AWS account -
@@ -146,10 +115,7 @@ terraform apply
 
 ## Related projects
 
-This is part of a small platform-engineering series:
-- **This repo** - cross-account Terraform for EKS
-- Helm charts for baseline cluster security tooling (Trivy/Falco + OPA Gatekeeper)
-- A custom Kubernetes operator using IRSA for scoped AWS access
+See the series link at the top of this README.
 
 ## License
 
